@@ -69,6 +69,7 @@ html {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  border: none;
   background-color: #ff2b56;
   font-size: 18px;
   color: #f1f3fe;

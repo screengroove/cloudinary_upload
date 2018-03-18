@@ -31,6 +31,7 @@ class App extends Component {
           sources: ["local", "url", "instagram", "facebook"],
           theme: "white",
           cropping: "custom",
+          cropping_aspect_ratio: 0.5,
           cropping_default_selection_ratio: 0.5
         },
         (error, result) => {
