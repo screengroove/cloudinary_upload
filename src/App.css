@@ -1,6 +1,14 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 .App {
     background-color: #f1f3fe;
     padding: 20px;
+    height: 100vh;
 }
 
 .preview-wrapper {
@@ -25,6 +33,7 @@
     width: 300px;
     position: relative;
     background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .preview-screen {
@@ -48,4 +57,21 @@
     color: #f1f3fe;
     font-size: 20px;
     font-weight: 600;
+}
+
+.delete-media {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #ff2b56;
+  font-size: 18px;
+  color: #f1f3fe;
+  cursor: pointer;
+  z-index: 10;
 }

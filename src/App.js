@@ -64,6 +64,14 @@ class App extends Component {
       publicId: resp[0].public_id
     });
   }
+  deleteMedia = e => {
+    e.preventDefault();
+    this.setState({
+      showImage: false,
+      showVideo: false,
+      publicId: null
+    });
+  };
   render() {
     const { showImage, showVideo, imgPath, publicId } = this.state;
     return (
@@ -109,6 +117,12 @@ class App extends Component {
             style={{ backgroundImage: `url(${phone})` }}
           >
             <div className="preview-screen">
+              {(showImage || showVideo) && (
+                <button className="delete-media" onClick={this.deleteMedia}>
+                  <i className="ion-android-close" />
+                </button>
+              )}
+
               <CloudinaryContext cloudName="dqvqfldvv">
                 {showImage && (
                   <Image publicId={publicId} width={280}>
