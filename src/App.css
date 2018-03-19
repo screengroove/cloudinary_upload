@@ -24,7 +24,7 @@ html {
     width: 100%;
     display: grid;
     grid-template-columns: 40px 1fr;
-    grid-gap: 40px 40px;
+    grid-gap: 30px 40px;
     padding: 30px;
 }
 
@@ -75,4 +75,8 @@ html {
   color: #f1f3fe;
   cursor: pointer;
   z-index: 10;
+}
+
+.DateRangePickerInput__withBorder {
+    width: 100%;
 }

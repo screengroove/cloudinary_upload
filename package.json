@@ -5,7 +5,9 @@
   "dependencies": {
     "bulma": "^0.6.2",
     "cloudinary-react": "^1.0.6",
+    "moment": "^2.21.0",
     "react": "^16.2.0",
+    "react-dates": "^16.3.6",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"
   },

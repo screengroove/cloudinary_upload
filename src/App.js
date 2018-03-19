@@ -1,4 +1,10 @@
 import React, { Component } from "react";
+import 'react-dates/initialize';
+import {
+  DateRangePicker,
+  SingleDatePicker,
+  DayPickerRangeController
+} from "react-dates";
 import {
   Image,
   Video,
@@ -7,6 +13,7 @@ import {
 } from "cloudinary-react";
 import "bulma/css/bulma.css";
 import "./App.css";
+import 'react-dates/lib/css/_datepicker.css';
 import phone from "./iphone_flat.png";
 import title from "./story_title.png";
 
@@ -17,7 +24,11 @@ class App extends Component {
     showImage: false,
     showVideo: false,
     imgPath: null,
-    publicId: null
+    publicId: null,
+    startDate: null,
+    endDate: null,
+    startDateId: '1',
+    endDateId: '2'
   };
   uploadWidget(event) {
     event.preventDefault();
@@ -31,8 +42,8 @@ class App extends Component {
           sources: ["local", "url", "instagram", "facebook"],
           theme: "white",
           cropping: "custom",
-          cropping_aspect_ratio: 0.5,
-          cropping_default_selection_ratio: 0.5
+          cropping_aspect_ratio: 1,
+          cropping_default_selection_ratio: 1
         },
         (error, result) => {
           console.log("RESULT", result);
@@ -79,6 +90,7 @@ class App extends Component {
       <div className="App">
         <div className="preview-wrapper">
           <div className="preview-form">
+ 
             <div className="step">1</div>
             <button
               onClick={this.uploadWidget.bind(this)}
@@ -87,6 +99,18 @@ class App extends Component {
               Upload Media
             </button>
             <div className="step">2</div>
+            <DateRangePicker
+              startDate={this.state.startDate} // momentPropTypes.momentObj or null,
+              startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+              endDate={this.state.endDate} // momentPropTypes.momentObj or null,
+              endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+              onDatesChange={({ startDate, endDate }) =>
+                this.setState({ startDate, endDate })
+              } // PropTypes.func.isRequired,
+              focusedInput={this.state.focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+              onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+            />
+            <div className="step">3</div>
             <div className="field">
               <label className="label">Story Title</label>
               <div className="control">
@@ -97,14 +121,14 @@ class App extends Component {
                 />
               </div>
             </div>
-            <div className="step">3</div>
+            <div className="step">4</div>
             <div className="field">
               <label className="label">Story Description</label>
               <div className="control">
                 <textarea className="textarea" />
               </div>
             </div>
-            <div className="step">4</div>
+            <div className="step">5</div>
             <button
               onClick={this.uploadWidget.bind(this)}
               className="button is-primary is-medium"
